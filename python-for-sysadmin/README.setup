@@ -1,0 +1,90 @@
+# Python for System Administrators
+
+The course requires:
+* python 2.7+ (see notes on python3)
+* easy_install or pip as package manager
+* ipython / jupyter
+* see requirements.txt
+
+Use the following instructions to setup your environment
+and try the python crash course reading and typing on 
+you shiny ipython console the exercises contained in 
+
+    #python-basic
+
+NB Python3.0 is not the default python version on many distributions so it's still not time
+   to switch to it for system administration tasks. Moreover you may not find
+   precompiled packages. Anyway once you have a compiler and the needed headers, pip should build 
+   everything you need (at least to me it worked). 
+
+
+## Generic Python
+Just
+
+    #pip install -r requirements.txt
+
+
+## Docker via Compose (downloads a 1GB image)
+Just run:
+
+    #docker-compose up
+
+
+## Linux Ubuntu
+Just run
+
+    apt-get install ipython python-pip python-psutil python-nose python-scipy python-numpy python-matplotlib tree dstat
+
+
+## Linux Red Hat / Centos / Fedora
+Install the EPEL repository
+
+    rpm -ivh http://ftp.tu-chemnitz.de/pub/linux/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
+
+Then install ipython and python-pip
+
+    yum install ipython python-pip python-psutil tree dstat
+
+
+## Mac OS and Windows (easy way)
+
+Download python from [Continuum](http://continuum.io/downloads) and
+install following the [provided instructions](http://docs.continuum.io/anaconda/install.html)
+
+Then from the terminal:
+
+    #conda update conda
+    #conda update ipython ipython-notebook ipython-qtconsole \
+        readline psutil matplotlib scipy numpy nose
+
+
+
+## Windows (hard way)
+Install Python from python.org http://www.python.org/getit/windows/
+Install pip following the instructions provided here https://pip.pypa.io/en/latest/installing.html
+
+My python directory is python27: replace it with your python installation path.
+From the console, install pyreadline, psutil, ipython, ansible and pyparsing
+
+    c:\python27\Scripts\easy_install pyreadline \
+        ipython nose pyparsing pyzmq \
+        markupsafe tornado jsonschema psutil ansible
+
+
+To install numpy scipy matplotlib just download and install the binaries for your windows version in the given order from 
+
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#six
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#dateutil
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+
+Test your ipython installation running it
+    c:\python27\Scripts\ipython
+
+Test if the libraries are fine 
+- download the test_course_environment.py from github
+- running ipython *after* you've installed all of them
+- run the following command
+  c:\python27\Scripts\nosetests test_prerequisites.py
+
